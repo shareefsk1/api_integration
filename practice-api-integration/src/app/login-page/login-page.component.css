@@ -1,0 +1,39 @@
+.parent{
+    width: 100vw;
+    height: 100vh;
+    background-color: aqua;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-form {
+    height: 30%;
+    width: 40%;
+    background-color: burlywood;
+    text-align: center;
+    border-radius: 20px;
+    font-weight: bold;
+
+}
+
+.login-form input {
+    padding: 10px;
+    border: 1px solid gray;
+    border-radius: 20px;
+    margin: 10px;
+}
+
+.login-form button {
+    background-color: rgb(73, 12, 204);
+    border-radius: 10px;
+    color: white;
+    border: 0px solid black;
+    height: 40px;
+    width: 85px;
+}
+
+label{
+    display: inline-block;
+    width: 70px;
+}

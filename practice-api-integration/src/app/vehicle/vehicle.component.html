@@ -1,0 +1,49 @@
+<input type="text" name="" id="" [(ngModel)]="keyword">
+<button (click)="filteredData()" class="btn btn-primary">Filter</button>
+
+<select [(ngModel)]="column" name="" id="">
+    <option value="Vehicle">Name</option>
+    <option value="model">Model</option>
+    <option value="color">Color</option>
+    <option value="type">Type</option>
+</select>
+
+<select [(ngModel)]="order" name="" id="">
+    <option value="asc">Ascending</option>
+    <option value="desc">Desending</option>
+</select>
+<button (click)="sort()" class="btn btn-success">SortBy</button>
+
+<table border="2" class="table table-hover">
+    <thead>
+        <tr>
+         <th *ngFor="let key of keys">{{key}}</th>
+         <th>Action</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr *ngFor="let value of vehicles">
+            <th>{{value.Vehicle}}</th>
+            <th>{{value.manufacturer}}</th>
+            <th>{{value.model}}</th>
+            <th>{{value.type}}</th>
+            <th>{{value.fuel}}</th>
+            <th>{{value.color}}</th>
+            <th><img src="{{value.image}}" alt="" height="50" width="50"></th>
+            <th>{{value.id}}</th>
+           <th> <button (click)="delete(value.id)" class="btn btn-danger" style="margin: 10px;">Delete</button></th>
+        </tr>
+    </tbody>
+</table>
+
+
+<ul class="pagination">
+
+  <li (click)="pagination(1)" class="page-item"><a class="page-link" >1</a></li>
+  <li (click)="pagination(2)" class="page-item"><a class="page-link" >2</a></li>
+  <li (click)="pagination(3)" class="page-item"><a class="page-link">3</a></li>
+  <li (click)="pagination(4)" class="page-item"><a class="page-link">4</a></li>
+  <li (click)="pagination(5)" class="page-item"><a class="page-link">5</a></li>
+  <li (click)="pagination(6)" class="page-item"><a class="page-link">6</a></li>
+</ul>

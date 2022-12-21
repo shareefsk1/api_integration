@@ -1,0 +1,51 @@
+<input [(ngModel)]="keyword" type="text" name="" id="">
+<button (click)="filter()" class="btn btn-primary">Filter</button>
+
+
+<select [(ngModel)]="column" name="" id="">
+    <option value="account_name">account_name</option>
+    <option value="currency">currency</option>
+    <option value="available_balance">available_balance</option>
+    <option value="account_number">account_number</option>
+</select>
+<select [(ngModel)]="order" name="" id="">
+    <option value="asc">Ascending</option>
+    <option value="desc">Desending</option>
+</select>
+
+
+<button (click)="sort()" class="btn btn-primary">Sort</button>
+
+<table border="2" class="table table-hover">
+    <thead>
+        <tr>
+            <th *ngFor="let key of keys">{{key}}</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr *ngFor="let value of accounts">
+            <td>{{value.createdAt}}</td>
+            <td>{{value.account_name}}</td>
+            <td>{{value.available_balance}}</td>
+            <td>{{value.currency}}</td>
+            <td><img src="{{value.user_image}}" alt="" height="50" width="50"></td>
+            <td>{{value.account_number}}</td>
+            <td>{{value.id}}</td>
+            <td> <button (click)="delete(value.id)" type="submit" class="btn btn-primary">Delete</button> </td>
+        </tr>
+    </tbody>
+</table>
+
+
+<ul class="pagination justify-content-center">
+    
+    <li (click)="pagination(1)" class="page-item"><a class="page-link">1</a></li>
+    <li (click)="pagination(2)" class="page-item"><a class="page-link">2</a></li>
+    <li (click)="pagination(3)" class="page-item"><a class="page-link">3</a></li>
+    <li (click)="pagination(4)" class="page-item"><a class="page-link">4</a></li>
+
+  </ul>
+
+

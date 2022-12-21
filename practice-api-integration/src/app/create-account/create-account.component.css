@@ -1,0 +1,13 @@
+label{
+    display: inline-block;
+    width: 150px;
+}
+
+label::after{
+    content: " : ";
+}
+
+input{
+    border-radius: 10px;
+    border: 0px solid black;
+}

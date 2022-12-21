@@ -1,0 +1,21 @@
+.parent{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    margin: 0px;
+    overflow: auto;
+}
+
+.left{
+    width: 20%;
+    background-color: rgb(199, 216, 165);
+    text-align: center;
+    overflow: auto;
+}
+
+.right{
+    background-color: gray;
+    width: 80%;
+    overflow: auto;
+
+}

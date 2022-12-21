@@ -1,0 +1,36 @@
+<h1>Vehicle Form</h1>
+
+<form [formGroup]="vehicleForm" action="">
+    <label for="">Vehicle Name: </label>
+    <input formControlName="Vehicle" type="text" name="" id="">
+    <br>
+
+    <label for="">manufacturer: </label>
+    <input formControlName="manufacturer" type="text" name="" id="">
+    <br>
+
+    <label for="">model: </label>
+    <input formControlName="model" type="text" name="" id="">
+    <br>
+
+
+    <label for="">type: </label>
+    <input formControlName="type" type="text" name="" id="">
+    <br>
+
+
+    <label for="">fuel: </label>
+    <input formControlName="fuel" type="text" name="" id="">
+    <br>
+
+    <label for="">color: </label>
+    <input formControlName="color" type="text" name="" id="">
+    <br>
+
+    <label for="">image: </label>
+    <input formControlName="image" type="text" name="" id="">
+    <br>
+
+</form>
+
+<button (click)="submit()" class="btn btn-primary">Submit</button>

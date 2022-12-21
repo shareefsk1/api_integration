@@ -1,0 +1,17 @@
+<div class="parent">
+    <div class="left">
+    <h2>DashBoard</h2>
+    <hr>
+    <h4 routerLink="vehicle">Vehicle</h4>
+    <h4 routerLink="createVehicle">Create Vehicle</h4>
+    <h4 routerLink="sbi">SBI BANK</h4>
+    <h4 routerLink="ca"> Create Account</h4>
+    <button (click)="logout()" class="btn btn-primary">LogOut</button>
+
+
+    </div>
+
+    <div class="right">
+        <router-outlet></router-outlet>
+    </div>
+</div>
