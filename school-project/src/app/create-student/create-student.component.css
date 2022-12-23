@@ -1,0 +1,20 @@
+*{
+    padding: 5px;
+}
+
+label{
+    display: inline-block;
+    width: 120px;
+}
+input{
+    border: 0px solid black;
+    border-radius: 10px;
+}
+
+button{
+    margin: 5px;
+}
+
+.error{
+    color: red;
+}

@@ -1,0 +1,100 @@
+<h2>Student Form</h2>
+
+<form [formGroup]="studentForm" action="">
+    <label for="">Name:</label>
+    <input formControlName="name" type="text">
+    <br>
+
+    <label for="">Father Name:</label>
+    <input formControlName="fathername" type="text">
+    <br>
+
+    <label for="">Class:</label>
+    <input formControlName="class" type="number">
+    <br>
+
+    <label for="">Date Of Birth:</label>
+    <input formControlName="dob" type="datetime-local">
+    <br>
+
+
+    <div formGroupName="adderess">
+        <label for="">AddressLine:</label>
+        <input formControlName="addressline" type="text">
+        <br>
+
+        <label for="">City</label>
+        <input formControlName="city" type="text">
+        <br>
+
+        <label for="">State:</label>
+        <input formControlName="state" type="text">
+        <br>
+
+        <label for="">Pincode:</label>
+        <input formControlName="pincode" type="number">
+
+        <div class="error" *ngIf="studentForm.get('adderess')?.get('pincode')?.touched && studentForm.get('adderess')?.get('pincode')?.invalid ">
+            <p *ngIf="studentForm.get('adderess')?.get('pincode')?.errors?.['required']">Pincode is required</p>
+            <p *ngIf="studentForm.get('adderess')?.get('pincode')?.errors?.['min']">Pincode should min 6 digits</p>
+            <p *ngIf="studentForm.get('adderess')?.get('pincode')?.errors?.['max']">Pincode should have 6 digits only</p>
+        </div>
+        <br>
+    </div>
+
+
+    <div formArrayName="marks">
+        <div *ngFor="let mark of marksarray.controls, let i = index">
+            <div formGroupName="{{i}}">
+                <h5>Education List {{i + 1}}</h5>
+                <label for="">class:</label>
+                <input formControlName="class" type="text">
+                <br>
+                
+                <label for="">year:</label>
+                <input formControlName="year" type="number">
+                <br>
+
+                <label for="">percentage:</label>
+                <input formControlName="percentage" type="number">
+
+                <div class="error" *ngIf="marksarray.controls[i].get('percentage')?.touched && marksarray.controls[i].get('percentage')?.invalid">
+                    <p *ngIf="marksarray.controls[i].get('percentage')?.errors?.['required']">Percentage is required</p>
+                    <p *ngIf="marksarray.controls[i].get('percentage')?.errors?.['min']">Percentage must graterthan 0</p>
+                    <p *ngIf="marksarray.controls[i].get('percentage')?.errors?.['max']">Percentage must lessthan 100</p>
+                </div>
+
+                <br>
+                <button (click)="delete(i)"  class="btn btn-danger">Delete</button>
+            </div>
+        </div>
+    </div>
+    <button (click)="add()" type="submit" class="btn btn-primary">Add Education</button>
+    <br>
+
+
+    <!-- Dynamic Form -->
+    <div>
+        <label for="">Type:</label>
+
+        <input type="radio" name="type" id="ds" value="busfee" formControlName="type">
+        <label for="ds">Days Scholar</label>
+
+        <input type="radio"  name="type" id="rf" value="hostelfee" formControlName="type">
+        <label for="rf">Residential</label>
+
+        <div *ngIf="studentForm.get('type')?.value == 'busfee'">
+            <label for="">Bus Fee:</label>
+            <input type="number" name="" id="" formControlName="busfee">
+        </div>
+
+        <div *ngIf="studentForm.get('type')?.value == 'hostelfee'">
+            <label for="">Hostel Fee:</label>
+            <input type="number" name="" id="" formControlName="hostelfee">
+        </div>
+
+    </div>
+
+    
+    <button (click)="submit()" class="btn btn-primary">Submit</button>
+</form>
