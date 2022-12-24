@@ -1,0 +1,14 @@
+<table  border="2" class="table table-strip">
+    <thead>
+        <tr>
+            <th *ngFor="let key of keys">{{key}}</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr *ngFor="let student of students">
+            <td *ngFor="let key of keys">{{student[key]}}</td>
+         
+        </tr>
+    </tbody>
+</table>

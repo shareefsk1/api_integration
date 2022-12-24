@@ -27,7 +27,7 @@ export class LoginPageComponent {
           this._router.navigateByUrl('/dashboard');
         },
         (err:any) => {
-          alert('error') ;
+          alert('Invalid email or password') ;
         }
       )
     }
