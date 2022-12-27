@@ -11,6 +11,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { CreateStudentComponent } from './create-student/create-student.component';
 import { AllStudentsComponent } from './all-students/all-students.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+import { TablewithformComponent } from './tablewithform/tablewithform.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
     DashboardComponent,
     CreateStudentComponent,
     AllStudentsComponent,
-    PagenotfoundComponent
+    PagenotfoundComponent,
+    TablewithformComponent
   ],
   imports: [
     BrowserModule,

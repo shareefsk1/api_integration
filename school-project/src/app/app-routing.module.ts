@@ -7,13 +7,15 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { NotifyGuard } from './notify.guard';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+import { TablewithformComponent } from './tablewithform/tablewithform.component';
 
 const routes: Routes = [
   {path:'' ,component:LoginPageComponent},
   {path:'login' ,component:LoginPageComponent},
   {path:'dashboard', component:DashboardComponent, canActivate:[AuthenticationGuard] , children:[
     {path:'createStudent' , component:CreateStudentComponent, canDeactivate:[NotifyGuard]},
-    {path:'allStudents', component:AllStudentsComponent}
+    {path:'allStudents', component:AllStudentsComponent},
+    {path:'tablewithform', component:TablewithformComponent}
   ]},
   {path: '**' , component:PagenotfoundComponent}
 
