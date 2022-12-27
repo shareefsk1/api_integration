@@ -35,7 +35,7 @@
             </div>
             <br>
 
-                <button [disabled]=" studentForm.controls['class'].invalid" (click)="submit()" type="submit" class="btn btn-primary">Submit</button>
+                <button [disabled]=" studentForm.invalid" (click)="submit()" type="submit" class="btn btn-primary">Submit</button>
                 <button  type="reset" class="btn btn-danger">Reset</button>
         </form>
     </div>
