@@ -23,7 +23,7 @@ export class TablewithformComponent {
 
   submit(){
     this.studentData.push(this.studentForm.value) ;
-    
+    this.studentForm.reset();
   }
 
 remove(index:any){
