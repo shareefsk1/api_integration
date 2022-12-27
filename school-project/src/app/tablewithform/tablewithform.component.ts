@@ -11,13 +11,14 @@ export class TablewithformComponent {
   public studentForm : FormGroup;
 
   public studentData: any = []
+  public submitted = false ;
 
   constructor(private _formBuilder:FormBuilder){
       this.studentForm = _formBuilder.group({
-        name:['', Validators.required]  ,
-        fathername:['', Validators.required]  ,
-        number:['', Validators.required],
-        class: ['', Validators.required],
+        name:['', [Validators.required, Validators.minLength(3)]]  ,
+        fathername:['', [Validators.required, Validators.minLength(3)]]  ,
+        number:['', [Validators.required, Validators.min(3)]],
+        class: ['', [Validators.required, Validators.minLength(3)]],
       })
   }
 

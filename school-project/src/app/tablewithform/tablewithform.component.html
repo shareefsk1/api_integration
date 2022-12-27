@@ -5,21 +5,37 @@
 
             <label>Name:</label>
             <input formControlName="name" type="text" name="" id="" value="">
+            <div *ngIf="studentForm.controls['name']?.touched && studentForm.controls['name']?.invalid ">
+                <p class="error" *ngIf="studentForm.controls['name']?.errors?.['required']">Name is required</p>
+                <p class="error" *ngIf="studentForm.controls['name']?.errors?.['minlength']">Name Should contain atleast 3 char</p>
+            </div>
             <br>
 
             <label>Father Name:</label>
             <input formControlName="fathername" type="text" name="" id="">
+            <div *ngIf="studentForm.controls['fathername']?.touched && studentForm.controls['fathername']?.invalid ">
+                <p class="error" *ngIf="studentForm.controls['fathername']?.errors?.['required']">Fathername is required</p>
+                <p class="error" *ngIf="studentForm.controls['fathername']?.errors?.['minlength']">Fathername Should contain atleast 3 char</p>
+            </div>
             <br>
 
             <label>Mobile Number:</label>
-            <input formControlName="number" type="number" name="" id="">
+            <input formControlName="number"  type="number" name="" id="">
+            <div *ngIf="studentForm.controls['number']?.touched && studentForm.controls['number']?.invalid ">
+                <p class="error" *ngIf="studentForm.controls['number']?.errors?.['required']">Number is required</p>
+                <p class="error" *ngIf="studentForm.controls['number']?.errors?.['minlength']">Number Should contain atleast 3 char</p>
+            </div>
             <br>
 
             <label>Class:</label>
             <input formControlName="class" type="text" name="" id="">
+            <div *ngIf="studentForm.controls['class']?.touched && studentForm.controls['class']?.invalid ">
+                <p class="error" *ngIf="studentForm.controls['class']?.errors?.['required']">class is required</p>
+                <p class="error" *ngIf="studentForm.controls['class']?.errors?.['minlength']">class Should contain atleast 3 char</p>
+            </div>
             <br>
 
-                <button (click)="submit()" type="submit" class="btn btn-primary">Submit</button>
+                <button [disabled]=" studentForm.controls['class'].invalid" (click)="submit()" type="submit" class="btn btn-primary">Submit</button>
                 <button  type="reset" class="btn btn-danger">Reset</button>
         </form>
     </div>
