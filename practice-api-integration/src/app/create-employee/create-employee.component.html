@@ -1,0 +1,126 @@
+<h4>Create-Employee</h4>
+
+<form [formGroup]="employeeForm" action="">
+    <label for="">Name:</label>
+    <input formControlName="name" type="text">
+    <br>
+
+    <label for="">Mobile:</label>
+    <input formControlName="mobile" type="number">
+    <br>
+    
+    <label for="">Email:</label>
+    <input formControlName="email" type="text">
+    <br>
+    
+    <label for="">DoB:</label>
+    <input formControlName="dob" type="datetime-local">
+    <br>
+
+    <div formGroupName="address">
+        <label for="">AddressLine</label>
+        <input formControlName="addressLine" type="text">
+        <br>
+
+        <label for="">City</label>
+        <input formControlName="city" type="text">
+        <br>
+
+        <label for="">State</label>
+        <input formControlName="state" type="text">
+        <br>
+
+        <label for="">Pincode</label>
+        <input formControlName="pincode" type="text">
+        <br>
+
+
+        <div formGroupName="location">
+            <label for="">NearBy</label>
+            <input formControlName="nearby" type="text">
+            <br>
+    
+            <label for="">LandMark</label>
+            <input formControlName="landmark" type="text">
+            <br>
+        </div>
+
+    </div>
+
+
+    <div formArrayName="education">
+        <div *ngFor="let education of educationdetailsarray.controls ; let i = index">
+            <div formGroupName="{{i}}">
+                <h3>Education No: {{i + 1}}</h3>
+
+                <label for="">Qualification:</label>
+                <input formControlName="qualification" type="text">
+                <br>
+
+                <label for="">Year:</label>
+                <input formControlName="year" type="text">
+                <br>
+
+                <label for="">Percentage</label>
+                <input formControlName="percentage" type="text">
+                <br>
+            
+                <button (click)="delete(i)" class="btn btn-danger">Delete</button>
+            </div>
+        </div>
+    </div>
+
+
+    <label for="">Role:</label>
+
+    
+    <input type="radio" name="type" value="frontend" id="fe" formControlName="type">
+    <label for="fe">FrontEnd Engineer</label>
+
+    
+    <input type="radio" name="type" value="backend" id="be" formControlName="type">
+    <label for="be">BackEnd Engineer</label>
+
+    <div  *ngIf="employeeForm.get('type')?.value == 'frontend'">
+        <h3> No Of Years of Experience:</h3>
+        
+        <label for="">HTML:</label>
+        <input formControlName="html" type="text" name="" id="">
+        <br>
+
+        <label for="">CSS:</label>
+        <input formControlName="css" type="text" name="" id="">
+        <br>
+
+        <label for="">JAVASCRIPT:</label>
+        <input formControlName="javascript" type="text" name="" id="">
+        <br>
+
+        <label for="">ANGULAR</label>
+        <input formControlName="angular" type="text" name="" id="">
+        <br>
+    </div>
+
+
+    <div  *ngIf="employeeForm.get('type')?.value == 'backend'">
+        <h3> No Of Years of Experience:</h3>
+        
+        <label for="">Node-Js:</label>
+        <input formControlName="nodejs" type="text" name="" id="">
+        <br>
+
+        <label for="">MongoDb:</label>
+        <input formControlName="mongodb" type="text" name="" id="">
+        <br>
+
+        <label for="">ExpressJs:</label>
+        <input formControlName="expressjs" type="text" name="" id="">
+        <br>
+
+    </div>
+    
+
+    <button (click)="add()" class="btn btn-primary">Add Education</button>
+    <br>
+    <button (click)="submit()"  class="btn btn-primary">Submit</button>
+</form>

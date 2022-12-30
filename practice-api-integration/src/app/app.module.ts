@@ -12,6 +12,8 @@ import { CreateVehicleComponent } from './create-vehicle/create-vehicle.componen
 import { SbiBankComponent } from './sbi-bank/sbi-bank.component';
 import { CreateAccountComponent } from './create-account/create-account.component';
 import { LoginPageComponent } from './login-page/login-page.component';
+import { CreateEmployeeComponent } from './create-employee/create-employee.component';
+import { VehicleDetailsComponent } from './vehicle-details/vehicle-details.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { LoginPageComponent } from './login-page/login-page.component';
     CreateVehicleComponent,
     SbiBankComponent,
     CreateAccountComponent,
-    LoginPageComponent
+    LoginPageComponent,
+    CreateEmployeeComponent,
+    VehicleDetailsComponent
   ],
   imports: [
     BrowserModule,

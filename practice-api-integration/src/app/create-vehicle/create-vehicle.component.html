@@ -1,4 +1,4 @@
-<h1>Vehicle Form</h1>
+<h1>{{isEdit ? 'Update Vehicle' : 'Create Vehicle'}}</h1>
 
 <form [formGroup]="vehicleForm" action="">
     <label for="">Vehicle Name: </label>
@@ -33,4 +33,4 @@
 
 </form>
 
-<button (click)="submit()" class="btn btn-primary">Submit</button>
+<button (click)="submit()" class="btn btn-primary">{{isEdit ? 'Update Vehicle' : 'Create Vehicle'}}</button>

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { VehicleService } from '../vehicle.service';
 import { FormControl, FormGroup } from '@angular/forms'
 import { ReactiveFormsModule } from '@angular/forms'
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-vehicle',
@@ -10,7 +11,9 @@ import { ReactiveFormsModule } from '@angular/forms'
 })
 export class CreateVehicleComponent {
 
-  constructor(private _vehicleService:VehicleService){}
+  public isEdit:boolean = false ;
+  public id :any = ''
+ 
 
 public vehicleForm:FormGroup = new FormGroup(
   {
@@ -26,15 +29,59 @@ public vehicleForm:FormGroup = new FormGroup(
   }
 )
 
-submit(){
-  this._vehicleService.addingData(this.vehicleForm.value).subscribe(
+
+constructor(private _vehicleService:VehicleService,private _activatedrouter:ActivatedRoute , private _router:Router){
+
+
+  _activatedrouter.params.subscribe(
     (data:any) => {
-      alert('Createde Successfully')
-    },
-    (err:any) => {
-      alert('internal seever error')
+
+      if(data.id) {
+        this.isEdit = true ;
+        this.id = data.id
+      }
+
+      _vehicleService.getvehicle(data.id).subscribe(
+        (data2:any) => {
+          this.vehicleForm.patchValue(data2)
+        }
+      )
     }
   )
+
+}
+
+
+submit(){
+
+  if(this.isEdit) {
+
+    this._activatedrouter.params.subscribe(
+      (data:any) => {
+        this._vehicleService.update(this.vehicleForm.value, data.id).subscribe(
+          (data2:any) => {
+            alert('Updated Successful') ;
+            this._router.navigateByUrl('dashboard/vehicle')
+          }
+        )
+      }
+    )
+
+  }
+
+  else{
+    this._vehicleService.addingData(this.vehicleForm.value).subscribe(
+      (data:any) => {
+        alert('Createde Successfully')
+      },
+      (err:any) => {
+        alert('internal seever error')
+      }
+    )
+  }
+
+
+
 }
 
 }

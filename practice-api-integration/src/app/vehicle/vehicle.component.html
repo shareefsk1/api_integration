@@ -32,7 +32,10 @@
             <th>{{value.color}}</th>
             <th><img src="{{value.image}}" alt="" height="50" width="50"></th>
             <th>{{value.id}}</th>
-           <th> <button (click)="delete(value.id)" class="btn btn-danger" style="margin: 10px;">Delete</button></th>
+           <th> <button (click)="delete(value.id)" class="btn btn-danger" style="margin: 10px;">Delete</button>
+                <button (click)="view(value.id)" class="btn btn-primary">View</button>
+                <button (click)="update(value.id)" class="btn btn-light">Update</button>    
+            </th>
         </tr>
     </tbody>
 </table>

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { VehicleService } from '../vehicle.service';
 
 @Component({
@@ -13,7 +14,7 @@ export class VehicleComponent {
   public order: any = ''
   public column: any = ''
 
-     constructor(private _vehicleService:VehicleService){
+     constructor(private _vehicleService:VehicleService, private _router:Router){
       this._vehicleService.getvehicledata().subscribe(
         (data:any)=>{
           this.vehicles=data;
@@ -68,6 +69,13 @@ export class VehicleComponent {
           alert("some server erros")
         }
       )
+     }
+     view(id:any){
+        this._router.navigateByUrl('dashboard/vehicel/' + id)
+     }
+
+     update(id:any) {
+      this._router.navigateByUrl('dashboard/update/' + id)
      }
 
    }
