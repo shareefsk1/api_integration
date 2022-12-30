@@ -1,3 +1,5 @@
+<h3>{{isEdit ? 'Update Account': 'Create Account'}}</h3>
+
 <form [formGroup]="accountForm" action="">
     <label for="">account_name</label>
     <input formControlName="account_name" type="text" name="" id="">
@@ -26,4 +28,4 @@
 </form>
 
 
-<button (click)="submit()" type="submit" class="btn btn-primary">Submit</button>
+<button (click)="submit()" type="submit" class="btn btn-primary">{{isEdit ? 'Update Account': 'Create Account'}}</button>

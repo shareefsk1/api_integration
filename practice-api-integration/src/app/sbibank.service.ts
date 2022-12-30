@@ -33,4 +33,12 @@ addingData(data:any):Observable<any>{
   return this._sbiBankService.post("https://6128991386a213001729f9df.mockapi.io/test/v1/principals",data)
 }
 
+singelAccount(id:any):Observable<any>{
+  return this._sbiBankService.get("https://6128991386a213001729f9df.mockapi.io/test/v1/principals/"+id)
+}
+
+updateAccount(data:any,id:any):Observable<any>{
+  return this._sbiBankService.put("https://6128991386a213001729f9df.mockapi.io/test/v1/principals/"+id, data)
+}
+
 }

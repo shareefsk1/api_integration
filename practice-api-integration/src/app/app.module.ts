@@ -14,6 +14,7 @@ import { CreateAccountComponent } from './create-account/create-account.componen
 import { LoginPageComponent } from './login-page/login-page.component';
 import { CreateEmployeeComponent } from './create-employee/create-employee.component';
 import { VehicleDetailsComponent } from './vehicle-details/vehicle-details.component';
+import { AccountDetailsComponent } from './account-details/account-details.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { VehicleDetailsComponent } from './vehicle-details/vehicle-details.compo
     CreateAccountComponent,
     LoginPageComponent,
     CreateEmployeeComponent,
-    VehicleDetailsComponent
+    VehicleDetailsComponent,
+    AccountDetailsComponent
   ],
   imports: [
     BrowserModule,

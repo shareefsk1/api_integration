@@ -1,5 +1,6 @@
 import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AccountDetailsComponent } from './account-details/account-details.component';
 import { AuthenticationGuard } from './authentication.guard';
 import { CreateAccountComponent } from './create-account/create-account.component';
 import { CreateEmployeeComponent } from './create-employee/create-employee.component';
@@ -19,7 +20,9 @@ const routes: Routes = [
 {path:"ca", component:CreateAccountComponent},
 {path:'ce', component:CreateEmployeeComponent},
 {path:'vehicel/:id' , component:VehicleDetailsComponent},
-{path:'update/:id', component:CreateVehicleComponent}
+{path:'update/:id', component:CreateVehicleComponent},
+{path:'view/:id' , component:AccountDetailsComponent},
+{path:'bank/:id' , component:CreateAccountComponent}
 ],
 },
 

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { SbibankService } from '../sbibank.service';
 import { FormControl, FormGroup } from '@angular/forms' 
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-account',
@@ -9,7 +10,9 @@ import { FormControl, FormGroup } from '@angular/forms'
 })
 export class CreateAccountComponent {
 
-constructor(private _sbiservice:SbibankService){}
+ public isEdit : boolean = false ;
+ public id : any = ''
+
 
 public accountForm :FormGroup = new FormGroup(
   {
@@ -21,16 +24,52 @@ public accountForm :FormGroup = new FormGroup(
   }
 )
 
+constructor(private _sbiservice:SbibankService, private _activatedRoute:ActivatedRoute, private _router:Router){
+  _activatedRoute.params.subscribe(
+    (data:any) => {
+
+      if(data.id){
+        this.isEdit = true ;
+        this.id = data.id ;
+      }
+
+
+      _sbiservice.singelAccount(data.id).subscribe(
+        (data2:any) => {
+          this.accountForm.patchValue(data2)
+        }
+      )
+    }
+  )
+}
+
 
 submit(){
+
+  if(this.isEdit){
+    this._activatedRoute.params.subscribe(
+      (data:any) => {
+        this._sbiservice.updateAccount(this.accountForm.value, data.id).subscribe(
+          (data2:any) => {
+            this._router.navigateByUrl('dashboard/sbi')
+            alert('updated sucessfully');
+          }
+        )
+      }
+    )
+  }
+
+  else{
   this._sbiservice.addingData(this.accountForm.value).subscribe(
     (data:any) => {
-      alert('added successfully')
+      alert('added successfully') ;
+      this.accountForm.reset()
     },
     (err:any) => {
       alert('server error')
     }
   )
+}
 }
 
 }

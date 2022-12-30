@@ -33,7 +33,10 @@
             <td><img src="{{value.user_image}}" alt="" height="50" width="50"></td>
             <td>{{value.account_number}}</td>
             <td>{{value.id}}</td>
-            <td> <button (click)="delete(value.id)" type="submit" class="btn btn-primary">Delete</button> </td>
+            <td> <button (click)="delete(value.id)" type="submit" class="btn btn-primary">Delete</button> 
+                <button (click)="view(value.id)" class="btn btn-primary"> View</button>
+                <button (click)="update(value.id)" class="btn btn-light">Update</button>
+            </td>
         </tr>
     </tbody>
 </table>

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { SbibankService } from '../sbibank.service';
 
 @Component({
@@ -13,7 +14,7 @@ export class SbiBankComponent {
   public column: any = ''
   public order: any = ''
 
-  constructor(private _httpClient:SbibankService){
+  constructor(private _httpClient:SbibankService, private _router:Router){
     _httpClient.getBankData().subscribe(
       (data:any) => {
         this.accounts = data ;
@@ -72,7 +73,13 @@ export class SbiBankComponent {
     )
   }
 
+  view(id:any){
+    this._router.navigateByUrl('dashboard/view/' + id)
+  }
 
+  update(id:any){
+    this._router.navigateByUrl('dashboard/bank/' + id)
+  }
 
 
 
